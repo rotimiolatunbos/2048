@@ -1,0 +1,26 @@
+body {
+	background-color: #BCAC9F;
+	margin: 0;
+}
+
+#main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+#board {
+	flex: 1;
+	display: grid;/*
+	width: 320px;
+	max-height: 320px;*/
+	grid-gap: 8px;
+}
+
+.cell {
+	font-family: sans-serif;
+	font-weight: bolder;
+	font-size: 24px;
+}
