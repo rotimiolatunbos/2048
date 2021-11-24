@@ -50,6 +50,7 @@ const game = (function (obj) {
 				score += s;
 				if (score > highscore) {
 					highscore = score;
+					localStorage.setItem('highscore', highscore);
 				}
 
 				return [s].concat(sumLeft(arr.slice(2)))
@@ -163,7 +164,7 @@ const game = (function (obj) {
 
 	obj.newGame = function (boardSize) {
 		score = 0;
-		highscore = 0;
+		highscore = localStorage.getItem('highscore');
 		boardNotChanged = false;
 
 		obj.board = [];
@@ -194,9 +195,6 @@ const game = (function (obj) {
 			board.push(result);
 		}
 
-		// if (!boardHasNotChanged(obj.board, board)) {
-		// 	obj.board = addRandomNumberToBoard(board, allIndices);
-		// }
 		const update = boardUpdate(obj.board, board)
 		if (update) {
 			obj.board = update;
@@ -211,9 +209,6 @@ const game = (function (obj) {
 			board.push(result);
 		}
 
-		// if (!boardHasNotChanged(obj.board, board)) {
-		// 	obj.board = addRandomNumberToBoard(board, allIndices);
-		// }
 		const update = boardUpdate(obj.board, board)
 		if (update) {
 			obj.board = update;
@@ -230,9 +225,7 @@ const game = (function (obj) {
 		}
 
 		const board = applyColumnsToBoard(boardCol, obj.boardSize);
-		// if (!boardHasNotChanged(obj.board, board)) {
-		// 	obj.board = addRandomNumberToBoard(board, allIndices);
-		// }
+
 		const update = boardUpdate(obj.board, board)
 		if (update) {
 			obj.board = update;

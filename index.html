@@ -8,103 +8,14 @@
 </head>
 <body>
 	<div id="main">
-		<div id="menu"></div>
+		<div id="menu">
+			<button id="new-game">new game</button>
+			<span id="score">SCORE: <span class="value"></span></span>
+			<span id="highscore">HI-SCORE: <span class="value"></span></span>
+		</div>
 		<div id="board"></div>
 	</div>
 
-	<script type="text/javascript">
-		(function () {
-			
-			const boardSize =4;
-			const board = document.querySelector('#board');
-
-			const BGCOLORS = [
-			    '#D6CDC4', '#ECE1D7', '#E5D8C2', '#F2B179', '#F59563', '#F67C5F', '#F65E3B', 
-			    '#EDCF72', '#EDCC61', '#EDC850', '#EDC53F', '#EDC22E', '#6ECC13', '#64C00B', '#5CB901'  
-			];
-
-			game.newGame(boardSize);
-
-			function* range(n) {
-				let i = 0;
-
-				while (i < n) {
-					yield i;
-					i++;
-				}
-			}
-
-			function createCell(row, col) {
-				const cell = document.createElement('span');
-
-				cell.setAttribute('class', 'cell')
-
-				cell.style.gridRowStart = `${row+1}`;
-				cell.style.gridColumnStart = `${col+1}`;
-				cell.style.borderRadius = '10px';
-				cell.style.textAlign = 'center'
-				cell.style.padding = '23px 0';
-
-				return cell;
-			}
-
-			function createBoard() {
-				board.innerHTML = '';
-
-				board.style.width = `${boardSize*80}px`;
-				board.style.maxHeight = `${boardSize*80}px`;
-				board.style.gridTemplateRows = `repeat(${boardSize}, 1fr`;
-				board.style.gridTemplateColumns = `repeat(${boardSize}, 1fr`;
-
-				for (let row of range(boardSize)) {
-					for (let col of range(boardSize)) {
-						const cell = createCell(row, col);
-
-						const value = game.getCell(row, col);
-
-						if (value == 0) {
-							cell.style.backgroundColor = BGCOLORS[0];
-						} else {
-							const i = Math.log2(value);
-
-							cell.innerText = value;
-							cell.style.backgroundColor = BGCOLORS[i];
-
-							if ([2, 4].indexOf(value) != -1) {
-								cell.style.color = '#776E65';
-							} else {
-								cell.style.color = 'white';
-							}
-						}
-
-						board.appendChild(cell);
-					}
-				}
-			}
-
-			document.onkeydown = function (event) {
-				switch (event.key) {
-					case 'ArrowUp':
-						game.moveUp();
-						break;
-					case 'ArrowDown':
-						game.moveDown();
-						break;
-					case 'ArrowLeft':
-						game.moveLeft();
-						break;
-					case 'ArrowRight':
-						game.moveRight();
-						break;
-				}	
-
-				if (!game.boardNotChanged) {
-					createBoard();
-				}	
-			}
-
-			createBoard();
-		})();
-	</script>
+	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
