@@ -26,7 +26,7 @@ body {
 
 #score, #highscore {
 	margin-right: 16px;
-	width: 180px;
+	width: 200px;
 	display: inline-block;
 	float: right;
 }
