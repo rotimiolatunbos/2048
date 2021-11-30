@@ -2,7 +2,7 @@
 
 2048 is a number game in which you try to create the number 2048.
 
-It is written in javascript.  
+It is written in HTML, CSS and vanilla javascript.  
 
 Check it out [here](https://rotimiolatunbos.github.io/2048/)
 
