@@ -1,6 +1,6 @@
 # 2048
 
-It is a number game in which you try to create the number 2048.
+2048 is a number game in which you try to create the number 2048.
 
 It is written in javascript.  
 
