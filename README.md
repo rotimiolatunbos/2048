@@ -9,7 +9,7 @@ Check it out [here](https://rotimiolatunbos.github.io/2048/)
 
 ## Demo
 
-Something would go here
+![2048 Demo](/demo/2048.webm)
 
 ## Usage
 
